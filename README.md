@@ -2,7 +2,17 @@
 
 This is a clone of the [DotNet 8.0 starter sample](https://github.com/dotnet/blazor-samples/tree/main/8.0/MauiBlazorWeb). The namespaces and references were renamed to be easier to find and replace with a string search.
 
-I use an M1 Mac, so it's ARM64 instead of an x64. There's a good chance that BlazorCrossPlatform.Maui.csproj has been altered to use Mac Catalyst and dropped targeting Android and iOS. It's just commented out.
+# How to target mobile and desktop
+
+I use an M1 Mac, so it's ARM64 instead of x64. There's a good chance that BlazorCrossPlatform.Maui.csproj has been altered to use Mac Catalyst and dropped targeting Android and iOS.   
+
+- Find `<PropertyGroup>` and uncomment  
+`<!--<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>-->`  
+- Comment out  
+  - `<TargetFramework>net8.0-maccatalyst</TargetFramework>`
+  - `<RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers>`
+
+If you've got a Windows machine, I don't know if you need target something else. Let me know!
 
 # Roadmap
 
