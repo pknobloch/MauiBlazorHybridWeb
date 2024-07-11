@@ -1,12 +1,22 @@
-using BlazorCrossPlatform.Web.Components;
+using BlazorCrossPlatform.Shared;
+using BlazorCrossPlatform.Web.Views;
 using BlazorCrossPlatform.Shared.Interfaces;
 using BlazorCrossPlatform.Web.Services;
+using Microsoft.FluentUI.AspNetCore.Components;
+using SoloX.BlazorJsonLocalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+// AddHttpClient() must always be called before AddFluentUIComponents()
+builder.Services.AddHttpClient();
+builder.Services.AddFluentUIComponents();
+
+builder.Services.AddJsonLocalization(
+    localizationOptionsBuilder => localizationOptionsBuilder.UseComponentsEmbedded(),
+    ServiceLifetime.Singleton);
 
 builder.Services.AddScoped<IFormFactor, FormFactor>();
 
@@ -20,6 +30,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseRequestLocalization();
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -29,4 +40,4 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddAdditionalAssemblies(typeof(BlazorCrossPlatform.Shared._Imports).Assembly);
 
-app.Run();
+await app.RunAsync();

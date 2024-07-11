@@ -1,0 +1,22 @@
+@using BlazorCrossPlatform.Shared.Views
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blazor Web</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base href="/"/>
+    <link rel="stylesheet" href="_content/BlazorCrossPlatform.Shared/css/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="_content/BlazorCrossPlatform.Shared/css/app.css"/>
+    <link rel="stylesheet" href="BlazorCrossPlatform.Web.styles.css"/>
+    <HeadOutlet @rendermode="InteractiveServer"/>
+</head>
+
+<body>
+<Routes @rendermode="InteractiveServer"/>
+<script app-name="BlazorCrossPlatform" src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
+<script src="_framework/blazor.web.js"></script>
+</body>
+
+</html>

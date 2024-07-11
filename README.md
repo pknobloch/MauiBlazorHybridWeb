@@ -16,7 +16,13 @@ If you've got a Windows machine, I don't know if you need target something else.
 
 # Roadmap
 
+- [X] JSON Localisation.
+  - [ ] Fully add all the text. Right now, there are examples for shared and Counter.
 - [ ] Add [PrettyBlazor](https://github.com/hassanhabib/PrettyBlazor) and use the building blocks for controls from [Mabrouk Mahdhi's OnDotnetLive repo](https://github.com/mabroukmahdhi/OnDotnetLive). I'll see how far down the rabbit hole I go as far as creating example services and tests etc.
+  - [x] Add PrettyBlazor
+  - [x] Add base controls
+  - [ ] Add brokers
+  - [ ] Add services
 - [ ] Make a responsive app so that it's ready for web, app and mobile straight out of the box.
-- [ ] Internationalisation.
-- [ ] Maybe I'll add accessibility.
+- [ ] Maybe I'll add accessibility, but that's really low priority
+- [ ] Make the Text Resizer save state

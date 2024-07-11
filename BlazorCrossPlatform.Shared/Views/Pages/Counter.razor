@@ -1,0 +1,27 @@
+﻿@inject IStringLocalizer<Counter> L
+
+@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<div role="status" style="padding-bottom: 1em;">
+    @L["Current count"]: <FluentBadge Appearance="Appearance.Neutral">@_currentCount</FluentBadge>
+</div>
+
+<ButtonBase Appearance="Appearance.Accent" OnClick="IncrementCount" Text="Click me"></ButtonBase>
+<ButtonBase Appearance="Appearance.Neutral" OnClick="IncrementCount" Text="Click me"></ButtonBase>
+<ButtonBase Appearance="Appearance.Outline" OnClick="IncrementCount" Text="Click me"></ButtonBase>
+<ButtonBase Appearance="Appearance.Lightweight" OnClick="IncrementCount" Text="Click me"></ButtonBase>
+<ButtonBase Appearance="Appearance.Stealth" OnClick="IncrementCount" Text="Click me"></ButtonBase>
+
+@code {
+    private int _currentCount = 0;
+
+    private void IncrementCount()
+    {
+        _currentCount++;
+    }
+
+}

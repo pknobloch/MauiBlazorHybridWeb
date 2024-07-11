@@ -2,6 +2,8 @@ using BlazorCrossPlatform.Shared;
 using Microsoft.Extensions.Logging;
 using BlazorCrossPlatform.Maui.Services;
 using BlazorCrossPlatform.Shared.Interfaces;
+using Microsoft.FluentUI.AspNetCore.Components;
+using SoloX.BlazorJsonLocalization;
 
 namespace BlazorCrossPlatform.Maui
 {
@@ -20,6 +22,14 @@ namespace BlazorCrossPlatform.Maui
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            
+            // AddHttpClient() must always be called before AddFluentUIComponents()
+            builder.Services.AddHttpClient();
+            builder.Services.AddFluentUIComponents();
+            
+            builder.Services.AddJsonLocalization(
+                localizationOptionsBuilder => localizationOptionsBuilder.UseComponentsEmbedded(),
+                ServiceLifetime.Singleton);
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();

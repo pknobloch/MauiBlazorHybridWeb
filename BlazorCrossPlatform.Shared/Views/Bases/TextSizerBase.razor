@@ -1,0 +1,33 @@
+@using Microsoft.FluentUI.AspNetCore.Components.DesignTokens
+@inject TypeRampBaseFontSize FontSize
+@inject IStringLocalizer<SharedLocalisation> L
+
+@* @rendermode InteractiveAuto *@
+
+<div>
+    <FluentButton id="btnTextSize" Appearance="Appearance.Stealth" Title="@L["TextSize"]" OnClick="OnToggle">
+        <FluentIcon Value="@(new Icons.Regular.Size20.TextFont())" Color="Color.Neutral" />
+    </FluentButton>
+
+    <FluentPopover AnchorId="btnTextSize" @bind-Open="_showTextSize">
+        <Body>
+        <div class="links">
+            <FluentButton IconEnd="@(new Icons.Regular.Size20.FontDecrease())" OnClick="@(() => OnSetFontSize(_fontSize - 2))" />
+            <FluentButton IconEnd="@(new Icons.Regular.Size20.FontIncrease())" OnClick="@(() => OnSetFontSize(_fontSize + 2))" />
+        </div>
+        </Body>
+    </FluentPopover>
+</div>
+
+@code {
+    bool _showTextSize = false;
+    int _fontSize = 14;
+
+    void OnToggle() => _showTextSize = !_showTextSize;
+
+    void OnSetFontSize(int fontSize)
+    {
+        FontSize.WithDefault(fontSize + "px");
+        _fontSize = fontSize;
+    }
+}

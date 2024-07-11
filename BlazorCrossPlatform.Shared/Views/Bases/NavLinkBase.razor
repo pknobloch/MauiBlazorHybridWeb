@@ -1,0 +1,23 @@
+﻿@using BlazorCrossPlatform.Shared.Models.Components.IconNames
+<FluentNavLink Href="@Href"
+               Match="@GetNavLinkMatch()"
+               Icon="@GetFluentUiIcon()"
+               IconColor="Color.Accent">
+    @Text
+</FluentNavLink>
+
+@code
+{
+    // For list of icons, see https://github.com/microsoft/fluentui-system-icons/blob/main/icons_regular.md
+    private Icon GetFluentUiIcon() => Icon switch
+    {
+        IconName.Home => new Icons.Regular.Size20.Home(),
+        IconName.Counter => new Icons.Regular.Size20.ApprovalsApp(),
+        IconName.Weather => new Icons.Regular.Size20.WeatherPartlyCloudyDay(),
+        IconName.FormFactor => new Icons.Regular.Size20.Form(),
+        _ => new Icons.Regular.Size20.Home()
+    };
+
+    private NavLinkMatch GetNavLinkMatch() =>
+        MatchAll ? NavLinkMatch.All : NavLinkMatch.Prefix;
+}

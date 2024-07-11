@@ -11,7 +11,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.4" />
+    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.*-* " />
+    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.*-* " />
+    <PackageReference Include="PrettyBlazor" Version="1.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.6" />
+    <PackageReference Include="SoloX.BlazorJsonLocalization" Version="2.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Views\Layout\MainLayout.razor" />
+    <AdditionalFiles Include="Views\Pages\Counter.razor" />
+    <AdditionalFiles Include="Views\Pages\DeviceFormFactor.razor" />
+    <AdditionalFiles Include="Views\Pages\Home.razor" />
+    <AdditionalFiles Include="Views\Pages\Weather.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Components\Pages\Counter.razor" />
+    <UpToDateCheckInput Remove="Components\Pages\DeviceFormFactor.razor" />
+    <UpToDateCheckInput Remove="Components\Pages\Home.razor" />
+    <UpToDateCheckInput Remove="Components\Pages\Weather.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**\*.json" />
   </ItemGroup>
 
 </Project>
